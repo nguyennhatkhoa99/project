@@ -35,3 +35,10 @@ def corpus_handlers(input_file_path, output_file_path):
         except Exception as e:
             print(f"file name: {input_file_path}:")  # Print the error message
         # You can also add additional handling code here if needed
+
+
+def load_dataset(dataset_name, split_ratio):
+    dataset = load_dataset(dataset_name, split="train[:5000]")
+    X_train, Y_train, X_test, Y_test = dataset.train_test_split(test_size=split_ratio)
+    return dataset, X_train, Y_train, X_test, Y_test
+
